@@ -29,7 +29,7 @@ public class GitMsrApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 	
-        try (Repository repository = openRepository("data")) {
+        try (Repository repository = openRepository()) {
             try (Git git = new Git(repository)) {
                 Iterable<RevCommit> commits = git.log().all().call();
 
@@ -44,7 +44,7 @@ public class GitMsrApplication implements CommandLineRunner {
         }
     }
 
-    public static Repository openRepository(String path) throws IOException {
-        return Git.open(new File(path)).getRepository();
+    public static Repository openRepository() throws IOException {
+        return Git.open(new File("data")).getRepository();
     }
 }
