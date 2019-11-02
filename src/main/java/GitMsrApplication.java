@@ -36,9 +36,7 @@ public class GitMsrApplication implements CommandLineRunner {
                 Iterator<RevCommit> iterator = commits.iterator();
                 while (iterator.hasNext()) {
                     RevCommit commit = iterator.next();
-                    if (iterator.hasNext()) {
-                        System.out.println("LogCommit: " + commit);
-                    }
+                    System.out.println("LogCommit: " + commit);
                 }
             }
         }

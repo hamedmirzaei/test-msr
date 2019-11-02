@@ -24,7 +24,7 @@ import java.util.List;
 public class DiffRenamedFile {
     public static void main(String[] args) throws IOException, GitAPIException {
 
-        try (Repository repo = openRepository()) {
+        try (Repository repo = openRepository2()) {
             try (Git git = new Git(repo)) {
                 Iterable<RevCommit> commits = git.log().all().call();
                 // the first is the latest
@@ -93,7 +93,7 @@ public class DiffRenamedFile {
         }
     }
 
-    public static Repository openRepository() throws IOException {
+    public static Repository openRepository2() throws IOException {
         return Git.open(new File("data")).getRepository();
     }
 }
